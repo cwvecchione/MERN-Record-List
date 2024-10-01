@@ -1,9 +1,13 @@
 import express from "express";
 import cors from "cors";
 import "./loadEnvironment.mjs";
+
+//Uncomment the following line if using MongoDB
 import records from "./routes/record.mjs";
 
-const PORT = process.env.PORT || 5050;
+//Uncomment the following line if using MySQL
+//import records from "./routes/record_sql.mjs";
+
 const app = express();
 
 app.use(cors());
@@ -13,5 +17,5 @@ app.use("/record", records);
 
 // start the Express server
 app.listen(PORT, () => {
-  console.log(`Server is running on port: ${PORT}`);
+  console.log(`Server is running on port: ${process.env.PORT}`);
 });
