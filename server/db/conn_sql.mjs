@@ -1,11 +1,6 @@
-const mysql = require('mysql')
+import { sqlite3 } from 'sqlite3';
 
-const connection = mysql.createConnection({
-    host: `${process.env.SQL_HOST}`,
-    user: `${process.env.SQL_USER}`,
-    password: `${process.env.SQL_PASSWORD}`,
-    database:`${process.env.SQL_DB}` 
-})
+const connection = new sqlite3.Database('./employees.db');
 
 let conn;
 try {
@@ -13,6 +8,5 @@ try {
 } catch(e) {
     console.error(e);
 }
-
 
 export default db;

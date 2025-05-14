@@ -3,10 +3,10 @@ import cors from "cors";
 import "./loadEnvironment.mjs";
 
 //Uncomment the following line if using MongoDB
-import records from "./routes/record.mjs";
+//import records from "./routes/record.mjs";
 
 //Uncomment the following line if using MySQL
-//import records from "./routes/record_sql.mjs";
+import records from "./routes/record_sql.mjs";
 
 const app = express();
 
