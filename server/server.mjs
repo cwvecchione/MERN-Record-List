@@ -5,7 +5,7 @@ import "./loadEnvironment.mjs";
 //Uncomment the following line if using MongoDB
 //import records from "./routes/record.mjs";
 
-//Uncomment the following line if using MySQL
+//Uncomment the following line if using SQLite
 import records from "./routes/record_sql.mjs";
 
 const app = express();
@@ -16,6 +16,6 @@ app.use(express.json());
 app.use("/record", records);
 
 // start the Express server
-app.listen(PORT, () => {
+app.listen(process.env.PORT, () => {
   console.log(`Server is running on port: ${process.env.PORT}`);
 });

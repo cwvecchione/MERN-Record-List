@@ -1,10 +1,10 @@
-import { sqlite3 } from 'sqlite3';
+import sqlite3 from 'sqlite3';
 
 const connection = new sqlite3.Database('./employees.db');
 
-let conn;
+let db;
 try {
-    conn = connection.connect()
+    db = connection.connect()
 } catch(e) {
     console.error(e);
 }
