@@ -1,3 +1,25 @@
+#Please note you need to make the following changes to the Webpack config file to get this to run
+
+\node_modules\react-scripts\config\webpack.config.js
+
+ resolve: {
+      // This allows you to set a fallback for where webpack should look for modules.
+      // We placed these paths second because we want `node_modules` to "win"
+      // if there are any conflicts. This matches Node resolution mechanism.
+      // https://github.com/facebook/create-react-app/issues/253
+      fallback: { 
+        "path": require.resolve("path-browserify"),
+        "os": require.resolve("os-browserify/browser"),
+        "fs": false,
+        "tls": false,
+        "net": false,
+        "zlib": false,
+        "http": false,
+        "https": false,
+        "stream": false,
+        "crypto": false
+      },
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

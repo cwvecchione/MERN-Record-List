@@ -1,7 +1,4 @@
-import dotenv from "dotenv";
-
-// Load environment variables from .env file
-dotenv.config();
+import 'dotenv/config'; // Load environment variables from .env file
 
 // Select the Client and Server paths based on the database platform being used (MongoDB, SQLite, Turso)
 export const dbPlatform = "SQLite";
