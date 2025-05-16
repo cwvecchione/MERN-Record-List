@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { CLIENT_URL } from "../../../server/loadEnvironment.mjs";
-import  "../../../server/loadEnvironment.mjs";
+import { CLIENT_URL } from "../loadEnvironment.mjs";
 
 const Record = (props) => (
     <tr>

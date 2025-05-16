@@ -1,6 +1,6 @@
 import sqlite3 from 'sqlite3';
 
-const connection = new sqlite3.Database('./employees.db');
+const connection = new sqlite3.Database('./recordList.db');
 
 let db;
 try {
