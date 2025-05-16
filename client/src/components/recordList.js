@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { CLIENT_URL } from "../loadEnvironment.mjs";
+import { clientPath } from "../loadEnvironment.mjs";
 
 const Record = (props) => (
     <tr>
@@ -26,7 +26,7 @@ const Record = (props) => (
     // This method fetches the records from the database.
     useEffect(() => {
     async function getRecords() {
-        const response = await fetch(`${CLIENT_URL}:${process.env.CLIENT_PORT}/record/`);
+        const response = await fetch(`${clientPath}:${process.env.CLIENT_PORT}/record/`);
 
         if (!response.ok) {
         const message = `An error occurred: ${response.statusText}`;
@@ -45,7 +45,7 @@ const Record = (props) => (
 
     // This method will delete a record
     async function deleteRecord(id) {
-    await fetch(`${CLIENT_URL}:${process.env.CLIENT_PORT}/record/${id}`, {
+    await fetch(`${clientPath}:${process.env.CLIENT_PORT}/record/${id}`, {
         method: "DELETE"
     });
 

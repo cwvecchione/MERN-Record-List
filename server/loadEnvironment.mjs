@@ -3,20 +3,22 @@ import dotenv from "dotenv";
 // Load environment variables from .env file
 dotenv.config();
 
-// Select the CLIENT_URL based on the database platform being used (MongoDB, SQLite, Turso)
-const db_platform = "SQLite";
+// Select the Client and Server paths based on the database platform being used (MongoDB, SQLite, Turso)
+export const dbPlatform = "SQLite";
 
-let CLIENT_URL
+let clientPath, serverPath;
+if (dbPlatform === "MongoDB")
+    serverPath = process.env.SERVER_URL_MONGODB;
+else if (dbPlatform === "Turso")
+    serverPath = process.env.SERVER_URL_TURSO;
+else
+    serverPath = process.env.SERVER_URL_SQL;
 
-function getENV() {
-    return new Promise((CLIENT_URL) => {
-        if(db_platform === "MongoDB")
-            CLIENT_URL = process.env.CLIENT_URL_MONGODB;
-        else if (db_platform === "Turso")
-            CLIENT_URL = process.env.CLIENT_URL_TURSO;
-        else
-            CLIENT_URL = process.env.CLIENT_URL_SQL;
-    });
-}
+if(dbPlatform === "MongoDB")
+    clientPath = process.env.CLIENT_URL_MONGODB;
+else if (dbPlatform === "Turso")
+    clientPath = process.env.CLIENT_URL_TURSO;
+else
+    clientPath = process.env.CLIENT_URL_SQL;
 
-    getENV();
+export { clientPath, serverPath };
